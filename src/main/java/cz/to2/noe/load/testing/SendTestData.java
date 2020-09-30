@@ -47,7 +47,7 @@ public class SendTestData implements ExceptionListener {
         Queue queue = (Queue) context.lookup(queueName);
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         MessageProducer producer = session.createProducer(queue);
-        FileInputStream fis = new FileInputStream("/Users/pavelnovotny/projects/NOE-load/data/load/noeResponse.txt");
+        FileInputStream fis = new FileInputStream("/Users/pavelnovotny/projects/NoeLoad/data/load/noeResponse.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(fis));
         connection.start();
         String line;

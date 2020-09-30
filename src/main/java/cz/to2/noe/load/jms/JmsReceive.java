@@ -56,6 +56,7 @@ public class JmsReceive implements LoadRunnable, ExceptionListener {
         while (run) {
             Message m;
             synchronized (jmsReceiveMonitor) {
+                if (!run) return;
                 m = consumer.receive(10000); //blocking until message received or consumer closed
                 jmsReceiveMonitor.notify();
                 logger.trace("wait");
