@@ -26,7 +26,7 @@ v případě výjimky (nedostupné JMS apod.), je nutné killnout nebo Ctrl+C, v
 ###### konfigurace  
 v příkladech níž jsou *property* soubory na classpath v aktuálním adresáři. Property jsou samopopisné.  
  
-*beast-iteration.properties*
+*beast-iteration.properties*  
 zde se čte a zapisuje spuštěná iterace loadu, která se pak použije jako suffix klíčů pro NOE, aby byly unikátní
 ```
 #Wed Sep 30 11:48:15 CEST 2020
