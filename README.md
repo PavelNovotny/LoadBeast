@@ -1,29 +1,29 @@
-###Noe load beast
+### Noe load beast
 
 Zatěžuje NOE daty s logů, přičemž dodržuje posloupnost procesu a časové intervaly posílání zpráv. Umožňuje řídit zátěž, tím, že tyto intervaly
 umí konfiguračně zkrátit, nebo prodlužit. Kontroluje výstup NOE zda se neliší od zalogovaného.
 
-######build:    
+###### build:    
 `mvn clean install`
 
-######runtime:  
+###### runtime:  
 jsou potřeba jdbc knihovny pro oracle, a klientské jms knihovny. Zbytek knihoven se dá použít z mvn repository.
 
 
-#####příprava loadu:
+##### příprava loadu:
 ```
 java -classpath ./:/Users/pavelnovotny/projects/NoeLoad/lib/ojdbc6_g.jar:/Users/pavelnovotny/projects/NoeLoad/lib/slf4j-simple-1.7.25.jar:/Users/pavelnovotny/projects/NoeLoad/lib/slf4j-api-1.7.25.jar:/Users/pavelnovotny/projects/NoeLoad/target/load_beast-1.0.jar cz.to2.noe.load.PrepareLoadFile
 ```
 
-#####spuštění loadu:
+##### spuštění loadu:
 ```
 java -classpath ./:/Users/pavelnovotny/projects/NoeLoad/lib/xmlunit-core-2.6.0.jar:/Users/pavelnovotny/projects/NoeLoad/lib/xmlunit-legacy-2.6.0.jar:/Users/pavelnovotny/projects/NoeLoad/lib/slf4j-simple-1.7.25.jar:/Users/pavelnovotny/projects/NoeLoad/lib/slf4j-api-1.7.25.jar:/Users/pavelnovotny/projects/NoeLoad/lib/wlfullclient-11g.jar:/Users/pavelnovotny/projects/NoeLoad/target/load_beast-1.0.jar cz.to2.noe.load.LoadBeast
 ```
-#####ukončení loadu:  
+##### ukončení loadu:  
 v případě výjimky (nedostupné JMS apod.), je nutné killnout nebo Ctrl+C, výjimka většinou ukončí jenom thread ve kterém běží, ale ne ostatní thready. Pokud běží program bez výjimek, ukončí všechny thready sám, na základě detekce nečinnosti, jejíž délka je konfigurovatelný parametr.
 
 
-######konfigurace  
+###### konfigurace  
 v příkladech níž jsou *property* soubory na classpath v aktuálním adresáři. Property jsou samopopisné.  
  
 *beast-iteration.properties*
@@ -89,8 +89,8 @@ jms.receive.connection.factory.jndi.name=weblogic.jms.ConnectionFactory
 *simplelogger.properties*  
 konfigurace logování.
 
-
-######pro účely testování loadu na weblogicu:
+ 
+###### pro účely testování loadu na weblogicu:
 pro ty co nemají NOE.  
 poslání testovacích zpráv do lokální jms:  
 ```
